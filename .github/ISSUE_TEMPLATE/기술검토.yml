@@ -1,0 +1,59 @@
+name: "\U0001F50D 기술검토 (Technical Review)"
+description: "기술적 검토, 리서치, 아키텍처 결정이 필요한 항목을 등록합니다."
+labels: ["tech-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 기술검토 등록
+        기술적 의사결정, 아키텍처 검토, 기술 리서치가 필요한 항목을 등록합니다.
+
+  - type: input
+    id: topic
+    attributes:
+      label: "검토 주제"
+      description: "기술검토의 핵심 주제를 한 문장으로 작성하세요."
+      placeholder: "예: 실시간 알림 시스템 기술 스택 선정"
+    validations:
+      required: true
+
+  - type: textarea
+    id: background
+    attributes:
+      label: "배경"
+      description: "이 기술검토가 필요한 배경과 현재 상황을 설명하세요."
+      placeholder: "현재 폴링 방식으로 알림을 처리하고 있으나, 지연이 발생하여 실시간 방식 도입을 검토합니다."
+    validations:
+      required: true
+
+  - type: textarea
+    id: options
+    attributes:
+      label: "검토 대상 옵션"
+      description: "비교/검토할 기술 옵션들을 나열하세요."
+      value: |
+        ### 옵션 A:
+        - 장점:
+        - 단점:
+
+        ### 옵션 B:
+        - 장점:
+        - 단점:
+
+  - type: textarea
+    id: evaluation-criteria
+    attributes:
+      label: "평가 기준"
+      description: "옵션을 평가할 기준을 작성하세요."
+      value: |
+        - [ ] 성능 요구사항 충족
+        - [ ] 팀 기술 스택과의 호환성
+        - [ ] 유지보수 용이성
+        - [ ] 비용
+
+  - type: textarea
+    id: deadline
+    attributes:
+      label: "결정 시한 및 참고자료"
+      description: "결정이 필요한 시한, 관련 문서/링크 등을 기재하세요."
+      placeholder: "YYYY-MM-DD까지 결정 필요 / 관련 RFC 링크"

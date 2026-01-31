@@ -1,0 +1,77 @@
+name: "\U0001F41B 버그리포트 (Bug Report)"
+description: "버그를 발견했을 때 보고합니다."
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 버그 리포트
+        발견한 버그를 가능한 상세하게 보고해주세요.
+        재현 가능한 정보가 많을수록 빠르게 수정할 수 있습니다.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "버그 설명"
+      description: "어떤 문제가 발생하는지 명확하게 설명하세요."
+      placeholder: "예: 장비 등록 화면에서 저장 버튼 클릭 시 500 에러가 발생합니다."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: "재현 방법"
+      description: "버그를 재현할 수 있는 단계를 순서대로 작성하세요."
+      value: |
+        1. '...' 페이지로 이동
+        2. '...' 버튼 클릭
+        3. '...' 입력
+        4. 에러 발생
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "예상 동작"
+      description: "정상적으로 동작했을 때 기대하는 결과를 설명하세요."
+      placeholder: "예: 장비 정보가 저장되고 목록 페이지로 이동해야 합니다."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: "실제 동작"
+      description: "실제로 발생한 결과를 설명하세요."
+      placeholder: "예: '서버 오류가 발생했습니다' 메시지가 표시되고 데이터가 저장되지 않습니다."
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: "환경 정보"
+      description: "버그가 발생한 환경을 기재하세요."
+      value: |
+        - **OS**:
+        - **브라우저**:
+        - **버전**:
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "심각도"
+      description: "버그의 심각도를 선택하세요."
+      options:
+        - "낮음 - 사소한 UI 문제"
+        - "보통 - 기능이 불편하지만 우회 가능"
+        - "높음 - 주요 기능 장애"
+        - "긴급 - 서비스 중단 또는 데이터 손실"
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "스크린샷 / 로그"
+      description: "에러 스크린샷, 콘솔 로그, 에러 메시지 등을 첨부하세요."

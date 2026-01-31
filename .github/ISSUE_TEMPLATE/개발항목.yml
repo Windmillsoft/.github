@@ -1,0 +1,46 @@
+name: "\u2699\uFE0F 개발항목 (Task)"
+description: "구현해야 할 개발 항목을 정의합니다."
+labels: ["type:개발항목", "status:backlog"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 개발항목 등록
+        구현이 필요한 개발 항목을 정의합니다.
+        상위 **상세기능**의 Sub-Issue로 연결하고, 필요시 하위에 **단위작업**을 분해하세요.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "설명"
+      description: "구현할 내용을 구체적으로 설명하세요."
+      placeholder: "예: 장비 등록 API 엔드포인트 구현 (POST /api/equipment)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: technical-details
+    attributes:
+      label: "기술 사항"
+      description: "변경 대상 파일, 사용 기술, 의존성 등을 기재하세요."
+      value: |
+        - **변경 파일**:
+        - **사용 기술**:
+        - **의존성**:
+
+  - type: textarea
+    id: implementation-notes
+    attributes:
+      label: "구현 참고"
+      description: "구현 방법, API 스펙, DB 스키마 변경 등 기술적 참고사항을 작성하세요."
+      placeholder: "API 스펙, ERD 변경사항, 참고 코드 등"
+
+  - type: textarea
+    id: done-criteria
+    attributes:
+      label: "완료 조건"
+      description: "이 항목의 완료 기준을 체크리스트로 작성하세요."
+      value: |
+        - [ ] 구현 완료
+        - [ ] 테스트 통과
+        - [ ] 코드 리뷰 완료

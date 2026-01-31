@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "\U0001F4AC 토론 (Discussions)"
+    url: https://github.com/orgs/Windmillsoft/discussions
+    about: "질문, 아이디어 공유, 팀 토론은 Discussions를 이용하세요."

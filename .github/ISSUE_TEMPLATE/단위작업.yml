@@ -1,0 +1,37 @@
+name: "\U0001F527 단위작업 (SubTask)"
+description: "최소 단위의 구체적인 작업을 정의합니다."
+labels: ["type:단위작업", "status:todo"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 단위작업 등록
+        최소 단위의 구체적인 작업을 정의합니다.
+        상위 **개발항목**의 Sub-Issue로 연결하세요.
+
+  - type: textarea
+    id: task-description
+    attributes:
+      label: "작업 내용"
+      description: "수행할 작업을 구체적으로 설명하세요."
+      placeholder: "예: Equipment 모델 클래스 생성 및 마이그레이션 작성"
+    validations:
+      required: true
+
+  - type: textarea
+    id: approach
+    attributes:
+      label: "구현 방법"
+      description: "접근 방식, 변경할 코드 위치, 참고 사항 등을 작성하세요."
+      placeholder: |
+        - 파일: src/models/equipment.ts
+        - 방법: Prisma 스키마에 Equipment 모델 추가
+
+  - type: textarea
+    id: done-criteria
+    attributes:
+      label: "완료 조건"
+      description: "완료 기준을 체크리스트로 작성하세요."
+      value: |
+        - [ ] 구현 완료
+        - [ ] 테스트 통과

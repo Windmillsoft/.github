@@ -1,0 +1,51 @@
+name: "\U0001F4A1 기능요청 (Feature Request)"
+description: "새로운 기능이나 개선 사항을 제안합니다."
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 기능 요청
+        새로운 기능이나 기존 기능의 개선 사항을 제안해주세요.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: "해결하고자 하는 문제"
+      description: "현재 어떤 불편함이나 문제가 있는지 설명하세요."
+      placeholder: "예: 현재 장비 목록에서 검색 기능이 없어서 원하는 장비를 찾기 어렵습니다."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: "제안하는 해결 방법"
+      description: "어떤 방식으로 해결하면 좋을지 설명하세요."
+      placeholder: "예: 장비 목록 상단에 이름/모델/시리얼 번호로 검색할 수 있는 검색바를 추가"
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "대안"
+      description: "고려해본 다른 해결 방법이 있다면 기재하세요."
+      placeholder: "예: 필터링 기능만 추가하는 방법도 고려했으나..."
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "우선순위"
+      description: "이 기능의 중요도를 선택하세요."
+      options:
+        - "낮음 - 있으면 좋은 기능"
+        - "보통 - 업무에 도움이 되는 기능"
+        - "높음 - 업무에 필요한 기능"
+        - "긴급 - 즉시 필요한 기능"
+
+  - type: textarea
+    id: context
+    attributes:
+      label: "추가 정보"
+      description: "스크린샷, 관련 문서, 참고 사례 등을 첨부하세요."
