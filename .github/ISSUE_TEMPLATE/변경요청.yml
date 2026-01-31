@@ -1,4 +1,4 @@
-name: "\U0001F504 변경요청 (Change Request)"
+name: "\U0001F504 변경요청"
 description: "기존 기능의 변경이나 수정을 요청합니다."
 labels: ["change-request"]
 body:

@@ -1,4 +1,4 @@
-name: "\u2699\uFE0F 개발항목 (Task)"
+name: "\u2699\uFE0F 개발항목"
 description: "구현해야 할 개발 항목을 정의합니다."
 labels: ["type:개발항목", "status:backlog"]
 body:

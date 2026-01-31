@@ -1,4 +1,4 @@
-name: "\U0001F527 단위작업 (SubTask)"
+name: "\U0001F527 단위작업"
 description: "최소 단위의 구체적인 작업을 정의합니다."
 labels: ["type:단위작업", "status:todo"]
 body:

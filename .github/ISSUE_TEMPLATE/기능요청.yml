@@ -1,4 +1,4 @@
-name: "\U0001F4A1 기능요청 (Feature Request)"
+name: "\U0001F4A1 기능요청"
 description: "새로운 기능이나 개선 사항을 제안합니다."
 labels: ["enhancement"]
 body:

@@ -1,4 +1,4 @@
-name: "\U0001F4CB 상세기능 (User Story)"
+name: "\U0001F4CB 상세기능"
 description: "사용자 관점의 기능 단위를 정의합니다."
 labels: ["type:상세기능", "status:backlog"]
 body:

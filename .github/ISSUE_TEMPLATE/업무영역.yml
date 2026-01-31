@@ -1,4 +1,4 @@
-name: "\U0001F3E2 업무영역 (Epic)"
+name: "\U0001F3E2 업무영역"
 description: "최상위 업무 범주를 정의합니다."
 labels: ["type:업무영역", "status:backlog"]
 body:
