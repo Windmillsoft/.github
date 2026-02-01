@@ -523,6 +523,36 @@ AccountTrigger (1개)
 4. **권장**: Custom Metadata Type은 `{도메인}{용도}__mdt` 네이밍 규칙 적용
 5. **참고**: Custom Metadata Type vs Custom Setting 선택 기준 — 배포 가능(CI/CD 포함) + 테스트에서 DML 가능 → Custom Metadata Type 우선
 
+##### Custom Label 다국어/다법인 규칙
+
+멀티 법인/권역 프로젝트에서 UI에 표시되는 모든 텍스트는 Custom Label을 사용해야 합니다.
+
+**하드코딩 금지 대상**:
+- LWC/Aura 컴포넌트의 사용자 표시 텍스트 (버튼, 라벨, 메시지, 안내문)
+- Apex에서 생성하는 에러 메시지, 알림 텍스트
+- Validation Rule의 에러 메시지
+- Email Template의 본문 텍스트
+
+**명명 규칙**: `{기능영역}_{화면/컨텍스트}_{용도}`
+
+```
+예시:
+  CustomerMgmt_Registration_Title          → "고객 등록"
+  CustomerMgmt_Registration_DuplicateError → "중복된 고객입니다"
+  CustomerMgmt_List_SearchPlaceholder      → "고객명 또는 사업자번호로 검색"
+  Common_Button_Save                       → "저장"
+  Common_Button_Cancel                     → "취소"
+  Common_Message_RequiredField             → "필수 항목입니다"
+```
+
+**규칙**:
+1. **필수**: LWC에서 `label` import 사용 (`import label from '@salesforce/label/c.LabelName'`)
+2. **필수**: Apex에서 `System.Label.LabelName` 사용 (문자열 리터럴 직접 사용 금지)
+3. **필수**: 생성 전 기존 Custom Label 검색 — `Common_` 접두어 라벨은 재사용 우선
+4. **필수**: 중복 방지를 위해 L3 이슈 body에 사용할 Custom Label 목록을 명시 (신규/기존 구분)
+5. **권장**: 공통 UI 텍스트(`저장`, `취소`, `삭제` 등)는 `Common_Button_*`, `Common_Message_*`로 통일
+6. **참고**: 단일 법인 프로젝트에서도 Custom Label 사용을 권장 (향후 확장 대비)
+
 #### L3 이슈 body 예시 (개발항목 — 개발 유형)
 
 ```markdown
@@ -624,6 +654,35 @@ AccountSelector 클래스에 전화번호 기반 고객 조회 메서드 추가.
 - 업무영역: #10 고객관리
 - 개발항목: #15 고객 정보 입력 폼, #16 유효성 검증
 - 단위작업: #17 입력 폼 UI, #18 API 연동
+```
+
+### 이슈 수정 시 핵심 섹션 보호
+
+사용자가 이슈 body 수정을 요청할 때, 아래 **보호 섹션**은 기존 내용을 사용자에게 보여주고 **명시적 확인을 받은 후에만** 변경합니다.
+
+**보호 섹션 목록**:
+- `## 의존성` — 공통 모듈 선행 의존성, 기능 내 의존성, UI 가이드라인 참조
+- `## 출처` — 원본 문서 경로 (추적성 유지)
+- `## 기술 사항` 내 `의존성` 항목
+
+**보호 절차**:
+1. 사용자의 수정 요청이 보호 섹션에 영향을 주는 경우, 기존 내용과 변경될 내용을 비교하여 제시
+2. 특히 의존성 제거/변경은 다른 이슈에 영향을 줄 수 있으므로 반드시 사유를 확인
+3. 사용자가 "의존성도 수정해줘"라고 명시한 경우에만 변경 진행
+4. 보호 섹션 외의 내용(설명, 체크리스트 등)은 사용자 요청대로 바로 수정 가능
+
+```
+예시:
+  사용자: "#15 이슈의 설명을 수정해줘. 검증 로직에 이메일 검증도 추가해"
+  Claude:
+    - 설명, 체크리스트 → 바로 수정
+    - 의존성에 ValidationUtil이 이미 있으므로 추가 변경 불필요 → 그대로 유지
+
+  사용자: "#15 이슈에서 AccountSelector 의존성을 제거해줘"
+  Claude:
+    - "현재 ## 의존성에 '#21 AccountSelector (공통 SOQL 조회)'가 있습니다.
+       이를 제거하면 SOQL 조회를 직접 구현해야 합니다. 제거할까요?"
+    - 사용자 확인 후 변경
 ```
 
 ### Phase 3: 변경 관리
