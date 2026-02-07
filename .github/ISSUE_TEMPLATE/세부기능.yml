@@ -1,0 +1,51 @@
+name: "📋 세부기능"
+description: "사용자 관점의 기능 단위를 정의합니다."
+labels: ["type:세부기능", "status:backlog"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 세부기능 등록
+        사용자 관점에서 하나의 기능 단위를 정의합니다.
+        상위 **업무영역**의 Sub-Issue로 연결하고, 하위에 **개발항목**을 분해하세요.
+
+  - type: textarea
+    id: overview
+    attributes:
+      label: "개요"
+      description: "사용자 관점에서 이 기능이 무엇을 하는지 설명하세요."
+      placeholder: "예: 딜러가 신규 장비를 시스템에 등록하고 기본 정보를 입력할 수 있다."
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-scenario
+    attributes:
+      label: "사용자 시나리오"
+      description: "사용자의 행동 흐름을 단계별로 작성하세요."
+      value: |
+        1. 사용자가 ...
+        2. 시스템이 ...
+        3. 결과로 ...
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: "수용 기준"
+      description: "이 기능이 완료되었다고 판단할 수 있는 조건을 체크리스트로 작성하세요."
+      value: |
+        - [ ] 기준 1
+        - [ ] 기준 2
+
+  - type: textarea
+    id: design-reference
+    attributes:
+      label: "화면/설계 참고"
+      description: "관련 화면 설계, 와이어프레임, Figma 링크 등을 첨부하세요."
+      placeholder: "Figma 링크, 스크린샷 등"
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: "비고"
+      description: "추가 참고사항, 의존성, 제약사항 등을 기재하세요."
