@@ -1,0 +1,81 @@
+name: "\u26A0\uFE0F 프로젝트이슈"
+description: "프로젝트 진행 중 발생한 이슈 또는 잠재적 리스크를 등록합니다."
+labels: ["type:프로젝트이슈"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 프로젝트이슈 등록
+        프로젝트 진행 중 발생한 문제(이슈) 또는 잠재적 위험(리스크)을 등록합니다.
+        해결 후 결과를 코멘트에 기록하고 이슈를 종료하세요.
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: "유형"
+      description: "이슈(이미 발생)인지 리스크(잠재적 위험)인지 선택하세요."
+      options:
+        - "이슈 — 이미 발생한 문제"
+        - "리스크 — 잠재적 위험"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "상세 내용"
+      description: "이슈/리스크의 내용을 구체적으로 작성하세요."
+      placeholder: |
+        예: API 서버 응답 속도가 3초 이상으로 SLA 기준(1초)을 초과하고 있습니다.
+        또는: 고객사 인프라 변경으로 연동 테스트 일정이 지연될 가능성이 있습니다.
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: "영향 범위"
+      description: "이 이슈/리스크가 프로젝트에 미치는 영향을 기재하세요."
+      placeholder: |
+        - 영향받는 업무영역: 주문관리, 결제
+        - 일정 영향: 2일 지연 예상
+        - 관련 이슈: #42, #43
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "심각도"
+      description: "프로젝트에 미치는 영향의 심각도를 선택하세요."
+      options:
+        - "낮음 — 일정/품질에 미미한 영향"
+        - "보통 — 일부 기능/일정에 영향"
+        - "높음 — 주요 기능/일정에 영향"
+        - "심각 — 프로젝트 전체에 영향"
+    validations:
+      required: true
+
+  - type: textarea
+    id: action-plan
+    attributes:
+      label: "대응 계획"
+      description: "해결 방안 또는 리스크 대응 계획을 작성하세요."
+      value: |
+        - [ ] 대응 항목 1
+        - [ ] 대응 항목 2
+    validations:
+      required: true
+
+  - type: input
+    id: deadline
+    attributes:
+      label: "해결 기한"
+      description: "해결이 필요한 날짜를 입력하세요."
+      placeholder: "YYYY-MM-DD"
+
+  - type: textarea
+    id: context
+    attributes:
+      label: "추가 정보"
+      description: "스크린샷, 관련 이슈 번호, 참고자료 등을 첨부하세요."
